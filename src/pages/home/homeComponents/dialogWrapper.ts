@@ -1,0 +1,41 @@
+import { createElement } from '../../../utils/createElement';
+import '../home.css';
+import '../../../components/componentsStyles.css';
+import { createButtonClose, createButtonConfirm } from './buttonsDialog';
+import { createDialogElement } from './dialogElement';
+import { userInsertInput } from '../functionUserInsertInput';
+
+export function createDialogWrapper(
+  taskList: HTMLUListElement,
+): HTMLDialogElement {
+  const dialog = createDialogElement();
+  const form = createElement<HTMLFormElement>({
+    tag: 'form',
+    classNames: ['form-element'],
+  });
+  dialog.appendChild(form);
+
+  const textareaElement = createElement<HTMLTextAreaElement>({
+    tag: 'textarea',
+    classNames: ['textarea-element'],
+  });
+  textareaElement.placeholder = `Paste a list of new options in a CSV-like format:
+
+  title,1                 -> | title                 | 1 |
+  title with whitespace,2 -> | title with whitespace | 2 |
+  title , with , commas,3 -> | title , with , commas | 3 |
+  title with "quotes",4   -> | title with "quotes"   | 4 |`;
+  textareaElement.rows = 12;
+  textareaElement.cols = 64;
+  form.appendChild(textareaElement);
+  const buttonCancel = createButtonClose(dialog);
+  const buttonConfirm = createButtonConfirm();
+  buttonConfirm.addEventListener('click', () => {
+    userInsertInput(taskList, textareaElement, dialog);
+  });
+  form.append(buttonCancel, buttonConfirm);
+  document.body.appendChild(dialog);
+  dialog.showModal();
+  return dialog;
+}
+export { createDialogElement };
