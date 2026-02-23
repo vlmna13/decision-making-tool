@@ -8,7 +8,7 @@ export function drawSection(params: SectionDrawingParams) {
   ctx.closePath();
   ctx.fillStyle = color;
   ctx.fill();
-  ctx.strokeStyle = '#000';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgb(255 255 255 / 25%)';
+  ctx.lineWidth = 1.5;
   ctx.stroke();
 }

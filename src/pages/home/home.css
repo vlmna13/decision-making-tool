@@ -7,9 +7,11 @@ body {
   min-height: 100dvh;
   margin: 0;
 
-  color: #e6f4f4;
+  font-family: Nunito, system-ui, sans-serif;
+  color: #f0edff;
 
-  background-color: #008c8c;
+  background: linear-gradient(135deg, #1a1035 0%, #2d1b69 50%, #1a1035 100%);
+  background-attachment: fixed;
 }
 
 .main-home-container {
@@ -27,7 +29,7 @@ body {
   width: 100%;
   max-width: 48rem;
   margin-inline: auto;
-  padding: 1rem;
+  padding: 2rem 1.5rem;
 }
 
 .task-wrapper {
@@ -35,17 +37,34 @@ body {
   gap: 1rem;
   align-items: center;
 
-  padding: 0.6rem 0.8rem;
-  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgb(180 160 255 / 20%);
+  border-radius: 0.75rem;
 
-  background-image: linear-gradient(#66baba, #005454);
+  background: linear-gradient(135deg, rgb(108 90 171 / 30%), rgb(80 60 140 / 20%));
+  backdrop-filter: blur(8px);
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.task-wrapper:hover {
+  border-color: rgb(180 160 255 / 40%);
+  box-shadow: 0 4px 20px rgb(155 125 212 / 20%);
 }
 
 .header {
   grid-area: heading;
-  color: #e6f4f4;
+
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0edff;
   text-align: center;
-  text-shadow: 0 0 0.25rem #e6f4f4;
+  text-shadow:
+    0 0 30px rgb(180 140 255 / 60%),
+    0 2px 4px rgb(0 0 0 / 40%);
+  letter-spacing: 0.02em;
 }
 
 .tasks-list {
@@ -84,6 +103,21 @@ body {
 
 .button-start {
   grid-area: start-button;
+
+  padding: 0.75rem;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  background: linear-gradient(135deg, #7c5cbf, #b07fe8);
+  box-shadow: 0 4px 24px rgb(155 125 212 / 50%);
+}
+
+.button-start:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #8d6ccf, #bf8ff8);
+  box-shadow: 0 6px 30px rgb(155 125 212 / 70%);
 }
 
 .text-input {
@@ -129,7 +163,8 @@ body:has(.dialog-wrapper[open]) {
 }
 
 .dialog-wrapper::backdrop {
-  backdrop-filter: blur(0.1875rem);
+  background: rgb(15 8 40 / 70%);
+  backdrop-filter: blur(4px);
 }
 
 .form-element {
@@ -140,25 +175,34 @@ body:has(.dialog-wrapper[open]) {
   gap: 1rem;
 
   margin-inline: auto;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgb(180 160 255 / 25%);
+  border-radius: 1rem;
 
-  background-color: #66baba;
-  box-shadow: 0 0 0.25rem 0.1rem #99d1d1;
+  background: rgb(26 16 60 / 96%);
+  box-shadow:
+    0 8px 32px rgb(0 0 0 / 50%),
+    0 0 0 1px rgb(180 160 255 / 8%);
 }
 
 .textarea-element {
   grid-area: textarea;
 
-  padding: 0.5rem;
-  border: none;
+  padding: 0.75rem;
+  border: 1px solid rgb(180 160 255 / 20%);
+  border-radius: 0.5rem;
 
-  line-height: normal;
-  color: #e6f4f4;
+  line-height: 1.5;
+  color: #f0edff;
 
-  background-color: #003838;
+  background-color: rgb(255 255 255 / 6%);
   outline: none;
-  box-shadow: 0 0 0.25rem 0.1rem #99d1d1;
+
+  transition: border-color 0.2s;
+}
+
+.textarea-element:focus {
+  border-color: rgb(180 140 255 / 55%);
 }
 
 .button-cancel {
@@ -174,19 +218,21 @@ body:has(.dialog-wrapper[open]) {
   flex-direction: column;
   gap: 1rem;
 
-  padding: 1rem;
-  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgb(180 160 255 / 25%);
+  border-radius: 1rem;
 
-  background-color: #66baba;
-  box-shadow: 0 0 0.25rem 0.1rem #99d1d1;
+  background: rgb(26 16 60 / 96%);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 50%);
 }
 
 .message {
   padding: 1rem;
+  border-radius: 0.5rem;
 
-  color: #e6f4f4;
-  text-shadow: 0 0 0.25rem #e6f4f4;
+  color: #f0edff;
+  text-shadow: 0 0 10px rgb(180 140 255 / 40%);
   white-space: pre-line;
 
-  background-color: #003838;
+  background-color: rgb(255 255 255 / 6%);
 }

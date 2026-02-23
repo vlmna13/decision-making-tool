@@ -2,7 +2,7 @@
 .content-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
 }
@@ -26,6 +26,19 @@
 
 .button-spin {
   grid-area: button-spin;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  background: linear-gradient(135deg, #7c5cbf, #b07fe8);
+  box-shadow: 0 4px 20px rgb(155 125 212 / 50%);
+}
+
+.button-spin:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #8d6ccf, #bf8ff8);
+  box-shadow: 0 6px 28px rgb(155 125 212 / 70%);
 }
 
 .label-duration {
@@ -45,22 +58,33 @@
 
   width: 100%;
   max-width: 24rem;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid rgb(180 160 255 / 25%);
+  border-radius: 0.5rem;
 
+  font-family: Nunito, system-ui, sans-serif;
+  font-weight: 600;
   line-height: 2;
-  color: inherit;
+  color: #f0edff;
   text-align: center;
   text-overflow: ellipsis;
-  text-shadow: 0 0 0.15rem #e6f4f4;
+  text-shadow: 0 0 10px rgb(180 140 255 / 40%);
   text-wrap: nowrap;
 
-  box-shadow: 0 0 0.15rem #e6f4f4;
+  background: rgb(255 255 255 / 6%);
 }
 
 .canvas-wheel {
   transform-origin: center;
   display: block;
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 24px rgb(155 125 212 / 35%));
 }
 
 .winning-value.win {
-  box-shadow: 0 0 0.25rem 0.1rem #0f0;
+  border-color: rgb(192 132 252 / 60%);
+  text-shadow: 0 0 18px rgb(192 132 252 / 90%);
+  box-shadow:
+    0 0 20px rgb(192 132 252 / 45%),
+    0 0 50px rgb(155 125 212 / 25%);
 }
